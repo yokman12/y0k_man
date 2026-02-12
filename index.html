@@ -2,75 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will You Be My Valentine?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
   <style>
     body {
-      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background: #ffebee;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
       text-align: center;
-      color: white;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 30px;
+      background: #fff;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 500px;
     }
-
     h1 {
-      font-size: 2rem;
+      color: #d81b60;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
-
+    .buttons {
+      margin: 30px 0;
+    }
     button {
-      padding: 12px 25px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .yes {
-      background: #ff4d6d;
+      background: #d81b60;
       color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 0 10px;
+      border-radius: 50px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: all 0.3s;
     }
-
-    .no {
-      background: white;
-      color: #ff4d6d;
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(216, 27, 96, 0.4);
     }
-
-    .yes:hover {
-      background: #ff1e4d;
+    #noBtn {
+      background: #f44336;
     }
-
-    .no:hover {
-      background: #ffe3ea;
+    #message {
+      font-size: 1.5em;
+      color: #d81b60;
+      margin-top: 20px;
+      min-height: 50px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>💖 Will you be my Valentine? 💖</h1>
-    <button class="yes" onclick="yesAnswer()">Yes 💘</button>
-    <button class="no" onclick="noAnswer()">No 🙈</button>
+  <div class="container">
+    <h1>Will You Be My Valentine?</h1>
+    <div class="buttons">
+      <button id="yesBtn">Yes!</button>
+      <button id="noBtn">No</button>
+    </div>
+    <div id="message"></div>
   </div>
 
   <script>
-    function yesAnswer() {
-      alert("YAY!! 💕 I’m so happy! Happy Valentine’s Day!");
-    }
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
 
-    function noAnswer() {
-      alert("Are you sure? 🥺");
-    }
+    noBtn.addEventListener('click', () => {
+      const messages = [
+        "Are you sure?",
+        "Don't be hasty...",
+        "Think about it!",
+        "I'll wait...",
+        "Please reconsider!"
+      ];
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      message.textContent = randomMessage;
+      noBtn.textContent = "Don't leave me!";
+      yesBtn.style.transform = "scale(1.5)";
+    });
+
+    yesBtn.addEventListener('click', () => {
+      message.textContent = "Yay! I knew you'd say yes! ❤️";
+      yesBtn.textContent = "I love you!";
+      yesBtn.style.background = "#2e7d32";
+      // Add confetti animation here (optional)
+    });
   </script>
 </body>
 </html>
