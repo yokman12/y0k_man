@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: white;
+      color: #ff4d6d;
+    }
+
+    .yes:hover {
+      background: #ff1e4d;
+    }
+
+    .no:hover {
+      background: #ffe3ea;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💖 Will you be my Valentine? 💖</h1>
+    <button class="yes" onclick="yesAnswer()">Yes 💘</button>
+    <button class="no" onclick="noAnswer()">No 🙈</button>
+  </div>
+
+  <script>
+    function yesAnswer() {
+      alert("YAY!! 💕 I’m so happy! Happy Valentine’s Day!");
+    }
+
+    function noAnswer() {
+      alert("Are you sure? 🥺");
+    }
+  </script>
+</body>
+</html>
